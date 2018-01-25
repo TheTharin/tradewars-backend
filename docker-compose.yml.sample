@@ -1,0 +1,9 @@
+postgresql:
+  image: postgres:10.0
+  ports:
+    - 5432:5432
+  environment:
+    - PGDATA=/***
+    - PG_PASSWORD=***
+  volumes:
+    - ./tmp/data/postgresql:/postgresql
