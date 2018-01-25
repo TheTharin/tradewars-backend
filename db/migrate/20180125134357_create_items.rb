@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :name, unique: true, null: false
       t.string :icon, null: false
       t.string :description
-      t.string :type, null: false
+      t.string :item_type, null: false
       t.string :rarity, null: false
       t.integer :level, null: false
       t.integer :vendor_value, null: false
