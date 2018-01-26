@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125134357) do
+ActiveRecord::Schema.define(version: 20180125161246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20180125134357) do
     t.text "game_types", default: [], array: true
     t.text "restrictions", default: [], array: true
     t.jsonb "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.jsonb "buys", default: [], array: true
+    t.jsonb "sells", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

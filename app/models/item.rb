@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  self.primary_key = :item_id
+
   validates :item_id, presence: true, uniqueness: true
   validates :chat_link, presence: true
   validates :name, presence: true, uniqueness: true
@@ -8,4 +10,5 @@ class Item < ApplicationRecord
   validates :level, presence: true
   validates :vendor_value, presence: true
 
+  has_one :listing, primary_key: :item_id, dependent: :destroy
 end
