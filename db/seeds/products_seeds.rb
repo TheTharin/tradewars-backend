@@ -1,13 +1,12 @@
 require 'net/http'
 require 'json'
 
-# url = "https://api.guildwars2.com/v2/items?page=0&page_size=200"
-# uri = URI(url)
-# response = Net::HTTP.get(uri)
-# answer = JSON.parse(response)
-# answer.each { |item| items_array.push item }
+url = "https://api.guildwars2.com/v2/items?page=0&page_size=200"
+uri = URI(url)
+response = Net::HTTP.get_response(uri)
+pages_total = response.to_hash['x-page-total'][0].to_i
 
-(0..302).each do |page|
+(0...pages_total).each do |page|
   puts "Parsing page №#{page}"
 
   url = "https://api.guildwars2.com/v2/items?page=#{page}&page_size=200"
